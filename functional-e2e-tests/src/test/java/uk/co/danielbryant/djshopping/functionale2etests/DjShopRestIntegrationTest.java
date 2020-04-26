@@ -11,15 +11,7 @@ public class DjShopRestIntegrationTest {
     private static final ContentType CONTENT_TYPE = ContentType.JSON;
     private static final String SUT_BASE_URI = "http://localhost:8010/";
 
-    @Test
-    public void correctNumberOfProductsReturned() {
-        given().contentType(CONTENT_TYPE)
-                .when()
-                .get(SUT_BASE_URI + "products")
-                .then()
-                .body("size()", is(5));
-    }
-
+   
     @Test
     public void productOneHasCorrectProductInfo() {
         given().contentType(CONTENT_TYPE)
@@ -39,4 +31,14 @@ public class DjShopRestIntegrationTest {
                 .then()
                 .body("[0].amountAvailable", is(5));
     }
+    
+     @Test
+    public void correctNumberOfProductsReturned() {
+        given().contentType(CONTENT_TYPE)
+                .when()
+                .get(SUT_BASE_URI + "products")
+                .then()
+                .body("size()", is(5));
+    }
+
 }
